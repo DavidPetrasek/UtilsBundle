@@ -4,7 +4,7 @@
 
 ## Installation
 
-`composer require psys/utils-bundle`
+`composer req psys/utils-bundle`
 
 ## Usage
 
