@@ -22,12 +22,11 @@ class FormErrors
 
             $invalidValue = $err_it->getCause()->getInvalidValue();
             $pathWithoutTrailingIntegers = preg_replace('/\d+$/', '', $path);
+            $fmMessage = ltrim($err_it->getMessage(), '_');
 
             // Collect errors for file inputs with multiple files
             if ($invalidValue instanceof UploadedFile  &&  $pathWithoutTrailingIntegers !== $path)
             {
-                $fmMessage = ltrim($err_it->getMessage(), '_');
-
                 $fileMultiple[$baseFormName.'_'.$pathWithoutTrailingIntegers][] = $fmMessage;
                 continue;
             }
@@ -44,7 +43,7 @@ class FormErrors
             $errsArr[] = 
             [
                 'field_id' => $field_id,
-                'message' => $err_it->getMessage()               
+                'message' => $fmMessage               
             ];
         }
 
