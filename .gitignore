@@ -1,0 +1,9 @@
+
+/vendor/
+rector.php
+composer.lock
+
+
+###> Local files ###
+/.directory
+###< Local files ###
