@@ -1,3 +1,5 @@
+[![Packagist Downloads](https://img.shields.io/packagist/dm/psys/utils-bundle?style=flat)](https://packagist.org/packages/psys/utils-bundle)
+
 # UtilsBundle
 
 ## Installation
