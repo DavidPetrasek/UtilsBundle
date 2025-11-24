@@ -1,6 +1,6 @@
 {
     "name": "psys/utils-bundle",
-    "description": "Set of utilities for Symfony framework",
+    "description": "Set of utilities for Symfony",
     "type": "symfony-bundle",
     "keywords": ["symfony", "symfony-bundle", "utilities", "form-errors", "file-uploader"],
     "license": "MIT",

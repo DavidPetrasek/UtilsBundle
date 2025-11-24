@@ -18,7 +18,7 @@ class Misc
         $emailConstraint = new ValConstr\Email();        
         $errors = $this->validator->validate($email, $emailConstraint);
         
-        if (empty($errors->count()))
+        if ($errors->count() === 0)
         {
             return new Result(true);
         }
