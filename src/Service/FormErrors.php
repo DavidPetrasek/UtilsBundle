@@ -15,12 +15,25 @@ class FormErrors
         $errs_FormErrorIterator = $baseForm->getErrors(true);
         foreach($errs_FormErrorIterator as $err_it)
         {
-            $path = $err_it->getCause()->getPropertyPath();
+            $cause = $err_it->getCause();
+            if (is_object($cause) && method_exists($cause, 'getPropertyPath')) 
+            {
+                $path = $cause->getPropertyPath();
+            } 
+            else 
+            {
+                $path = '';
+            }
+
             $path = preg_replace("/^(data.)|(.data)|(\\])|(\\[)|children/", '', $path);
             $path = str_replace('.', '_', $path);
-            $field_id = $baseFormName.'_'.$path;
+            $field_id = $baseFormName . ($path !== '' ? '_'.$path : '');
 
-            $invalidValue = $err_it->getCause()->getInvalidValue();
+            $invalidValue = null;
+            if (is_object($cause) && method_exists($cause, 'getInvalidValue')) 
+            {
+                $invalidValue = $cause->getInvalidValue();
+            }
             $pathWithoutTrailingIntegers = preg_replace('/\d+$/', '', $path);
             $fmMessage = ltrim($err_it->getMessage(), '_');
 
@@ -60,6 +73,3 @@ class FormErrors
         return $errsArr;
     }
 }
-
-
-?>

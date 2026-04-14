@@ -4,7 +4,9 @@
 
 ## Installation
 
-`composer req psys/utils-bundle`
+``` bash
+composer req psys/utils-bundle
+```
 
 ## Usage
 
