@@ -61,6 +61,7 @@ $formErrorsRes:
     ]
 ]
 ```
+The `field_id` can also be same as `id` of the form to allow form-level errors.
 
 ### Miscellaneous
 ``` php
